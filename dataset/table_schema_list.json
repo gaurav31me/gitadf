@@ -1,0 +1,39 @@
+{
+	"name": "table_schema_list",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_ecdc_dataset_blob",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "incremental load"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "new_schema.json",
+				"container": "config"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"TABLE_NAME": {
+					"type": "string"
+				},
+				"WaterMark_Column": {
+					"type": "string"
+				},
+				"TableType": {
+					"type": "string"
+				},
+				"StoredProcedureNameForMergeOperation": {
+					"type": "string"
+				}
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,27 @@
+{
+	"name": "dl_processed_daily_load",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_ecdc_dataset_lake",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "process"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "ecdc/hospital_admissions_daily",
+				"fileSystem": "processed"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

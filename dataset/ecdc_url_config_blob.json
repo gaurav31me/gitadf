@@ -1,0 +1,36 @@
+{
+	"name": "ecdc_url_config_blob",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_ecdc_dataset_blob",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "http"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "ecdc_file_list.json",
+				"container": "config"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"sourceBaseURL": {
+					"type": "string"
+				},
+				"sourceRelativeURL": {
+					"type": "string"
+				},
+				"sinkFileName": {
+					"type": "string"
+				}
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

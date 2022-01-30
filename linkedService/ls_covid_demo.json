@@ -1,0 +1,14 @@
+{
+	"name": "ls_covid_demo",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureDatabricks",
+		"typeProperties": {
+			"domain": "https://adb-8923376393986767.7.azuredatabricks.net",
+			"authentication": "MSI",
+			"workspaceResourceId": "/subscriptions/f8989928-b5d0-4b49-8b3e-719e39fb653e/resourceGroups/databricksfactoryRG/providers/Microsoft.Databricks/workspaces/databricks-course-wf",
+			"existingClusterId": "1228-145024-8rndp2ub"
+		}
+	}
+}

@@ -1,0 +1,162 @@
+{
+	"name": "pl_sql__hospitalized_admisssion_data",
+	"properties": {
+		"activities": [
+			{
+				"name": "copy_hospitalized_data",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"wildcardFileName": "*.csv",
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "country",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "country",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "country_code_2_digit",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "country_code_2_digit",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "country_code_3_digit",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "country_code_3_digit",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "population",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "population",
+									"type": "Int64",
+									"physicalType": "bigint"
+								}
+							},
+							{
+								"source": {
+									"name": "reported_date",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "reported_date",
+									"type": "DateTime",
+									"physicalType": "date"
+								}
+							},
+							{
+								"source": {
+									"name": " hospital occupancy_count",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "hospital_occupancy_count",
+									"type": "Int64",
+									"physicalType": "bigint"
+								}
+							},
+							{
+								"source": {
+									"name": " ICU occupancy_count",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "icu_occupancy_count",
+									"type": "Int64",
+									"physicalType": "bigint"
+								}
+							},
+							{
+								"source": {
+									"name": "source",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "source",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "dl_processed_daily_load",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "sql_hospitalized_daily",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"folder": {
+			"name": "sqlingest"
+		},
+		"annotations": [],
+		"lastPublishTime": "2021-12-29T09:10:42Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,24 @@
+{
+	"name": "tr_population_data_arrived",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pl_execute_population_pipleline",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/population/blobs/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/f8989928-b5d0-4b49-8b3e-719e39fb653e/resourceGroups/databricksfactoryRG/providers/Microsoft.Storage/storageAccounts/covidreportingsalake",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
