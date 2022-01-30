@@ -7,7 +7,7 @@
 				"type": "ForEach",
 				"dependsOn": [
 					{
-						"activity": "lookup tableSchema",
+						"activity": "lookup tableSchema_list",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -203,7 +203,7 @@
 				}
 			},
 			{
-				"name": "lookup tableSchema",
+				"name": "lookup tableSchema_list",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
