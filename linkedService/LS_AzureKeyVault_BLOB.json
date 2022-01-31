@@ -1,0 +1,10 @@
+{
+	"name": "LS_AzureKeyVault_BLOB",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://fornula1keyvault.vault.azure.net/"
+		}
+	}
+}
