@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('lookup tableSchema').output.value",
+						"value": "@activity('lookup tableSchema_new').output.value",
 						"type": "Expression"
 					},
 					"activities": [
